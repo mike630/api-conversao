@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meudeployment2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      test: node2
+  template:
+    metadata:
+      labels:
+        test: node2
+    spec:
+      containers:
+        - name: node
+          image: mike630/api-conversao:v1
+          ports:
+          - containerPort: 8080
